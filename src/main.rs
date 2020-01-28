@@ -7,10 +7,8 @@ use std::fs;
 use std::path::PathBuf;
 
 mod error;
-mod logging;
 
 use crate::error::{Result, Error};
-use crate::logging::setup_logger;
 use std::process::exit;
 
 
@@ -128,3 +126,19 @@ fn parse_args() -> (PathBuf, PathBuf) {
     )
 }
 
+
+pub fn setup_logger() -> std::result::Result<(), fern::InitError> {
+    fern::Dispatch::new()
+        .format(|out, message, record| {
+            out.finish(format_args!(
+                "[ {:5} ] {}",
+                record.level(),
+                message
+            ))
+        })
+        .level(log::LevelFilter::Debug)
+        .chain(std::io::stdout())
+//        .chain(fern::log_file("output.log")?)
+        .apply()?;
+    Ok(())
+}

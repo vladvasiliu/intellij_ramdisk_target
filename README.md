@@ -16,9 +16,27 @@ The program expects two arguments:
 1. the full path of the directory to be linked (the "build" directory, aka the link source)
 
 ### Example
+
+IntelliJ currently has a limitation that doesn't allow creating run configurations from arbitrary binaries.
+To circumvent this, create a shell script that wraps the binary:
+
+```bash
+#!/usr/bin/env bash
+
+/path/to/intellij_ramdisk_target $@
+```
+
+This script passes all its arguments to the wrapper binary.
+
+* In the IDE go to *Settings -> Tools -> Startup Tasks*
+* Click *Add new configuration -> Shell script*
+* Add the path to the shell wrapper
+* Add the arguments on the format below:
+
 ```bash
 intellij_ramdisk_target --projdir ~/code/some_project/target --ramdir /run/user/$UID/code/some_project/target
 ```
+
 
 ## Requirements
 
