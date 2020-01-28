@@ -7,6 +7,8 @@ This project is made for personal use and to get used to Rust. You may use this 
 
 Caution is advised, as it may kill your cat or have some other surprising behaviour.
 
+See [limitations](#Limitations) below.
+
 ## How to use
 
 This is written is Rust. As such you may download a binary from the releases page (Linux/x86_64 only) or build it yourself.
@@ -37,11 +39,18 @@ This script passes all its arguments to the wrapper binary.
 intellij_ramdisk_target --projdir ~/code/some_project/target --ramdir /run/user/$UID/code/some_project/target
 ```
 
-
 ## Requirements
 
 I'm only testing it using the latest stable Rust and on Linux/x86_64.
 There is actually a tight dependency on unix, so it won't work on Windows. YMMV on Mac OS.
+
+## Limitations
+
+The code is not tested. The basic functionality works, but it may fail on some corner cases.
+
+It's basically a quick and dirty solution to automate the creation of the `target` directory in IntelliJ.
+
+This is one of my first forays in Rust, so the code might be somewhat naive.
 
 ## Motivation
 I'm sometimes using a computer with an old SSD to develop Rust projects.
@@ -49,6 +58,10 @@ I'm sometimes using a computer with an old SSD to develop Rust projects.
 In order to avoid excessive wear through write amplification, I'm putting the `target` folder on a ramdrive.
 
 This project was born out of a need to automate creation and symlinking of the required directories while using IntelliJ.
+
+## Acknowledgements
+
+This work was inspired by [this blog post](https://medium.com/@sergio.igwt/boosting-performance-of-intellij-idea-and-the-rest-of-jetbrains-ides-cd34952bb978).
 
 ## License
 The code is released under the termes of the BSD 3-clause License.
