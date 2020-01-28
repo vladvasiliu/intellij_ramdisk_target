@@ -9,10 +9,15 @@ Caution is advised, as it may kill your cat or have some other surprising behavi
 
 ## How to use
 
-This is written is Rust. As such you may download a binary from the releases page (Linux/x86_64 only) or build it yourself:
+This is written is Rust. As such you may download a binary from the releases page (Linux/x86_64 only) or build it yourself.
 
-```
-cargo build --release
+The program expects two arguments:
+1. the full path of the directory on the ramdrive (the link destination)
+1. the full path of the directory to be linked (the "build" directory, aka the link source)
+
+### Example
+```bash
+intellij_ramdisk_target --projdir ~/code/some_project/target --ramdir /run/user/$UID/code/some_project/target
 ```
 
 ## Requirements
