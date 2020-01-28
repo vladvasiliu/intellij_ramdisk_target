@@ -26,3 +26,7 @@ I'm sometimes using a computer with an old SSD to develop Rust projects.
 In order to avoid excessive wear through write amplification, I'm putting the `target` folder on a ramdrive.
 
 This project was born out of a need to automate creation and symlinking of the required directories while using IntelliJ.
+
+## License
+The code is released under the termes of the BSD 3-clause License.
+Please see [`LICENSE`](LICENSE) for the full text of the license.
